@@ -1,65 +1,97 @@
 # SPDX-FileCopyrightText: 2025 Ardox
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-pkgdatadir = get_option('prefix') / get_option('datadir') / meson.project_name()
-
-gnome.compile_resources('axuralis',
-  'axuralis.gresource.xml',
-  gresource_bundle: true,
-  install: true,
-  install_dir: pkgdatadir,
+project('axuralis', 'rust',
+  version: '1.0',
+  license: ['GPL-3.0'],
+  meson_version: '>= 0.59.0',
+  default_options: [ 'warning_level=2', ],
 )
 
-conf = configuration_data()
-conf.set_quoted('VERSION', '@0@@1@'.format(meson.project_version(), version_suffix))
-conf.set_quoted('GETTEXT_PACKAGE', 'axuralis')
-conf.set_quoted('LOCALEDIR', get_option('prefix') / get_option('localedir'))
-conf.set_quoted('PKGDATADIR', pkgdatadir)
-conf.set_quoted('APPLICATION_ID', application_id)
-conf.set_quoted('PROFILE', get_option('profile'))
+dependency('gtk4', version: '>= 4.16.0')
+dependency('libadwaita-1', version: '>= 1.5')
+dependency('gstreamer-1.0', version: '>= 1.20')
+dependency('gstreamer-audio-1.0', version: '>= 1.20')
+dependency('gstreamer-play-1.0', version: '>= 1.20')
+dependency('gstreamer-plugins-base-1.0', version: '>= 1.20')
+dependency('gstreamer-plugins-bad-1.0', version: '>= 1.20')
+dependency('gstreamer-bad-audio-1.0', version: '>= 1.20')
 
-config_rs = configure_file(
-  input: 'config.rs.in',
-  output: 'config.rs',
-  configuration: conf
+i18n = import('i18n')
+gnome = import('gnome')
+fs = import('fs')
+
+cargo = find_program('cargo', required: true)
+
+cargo_sources = files(
+  'Cargo.toml',
+  'Cargo.lock',
 )
 
-# Copy the config.rs output to the source directory.
-run_command(
-  'cp',
-  meson.project_build_root() / 'src' / 'config.rs',
-  meson.project_source_root() / 'src' / 'config.rs',
-  check: true,
-)
-
-cargo_options = [ '--manifest-path', meson.project_source_root() / 'Cargo.toml' ]
-cargo_options += [ '--target-dir', meson.project_build_root() / 'src' ]
-
-if get_option('profile') == 'default'
-  cargo_options += [ '--release' ]
-  rust_target = 'release'
-  message('Building in release mode')
+if get_option('profile') == 'development'
+  profile = '.Devel'
+  if fs.is_dir('.git')
+    vcs_tag = run_command('git', 'rev-parse', '--short', 'HEAD', check: true).stdout().strip()
+    if vcs_tag == ''
+      version_suffix = '-devel'
+    else
+      version_suffix = '-@0@'.format(vcs_tag)
+    endif
+  else
+    version_suffix = '-devel'
+  endif
 else
-  rust_target = 'debug'
-  message('Building in debug mode')
+  profile = ''
+  version_suffix = ''
 endif
 
-cargo_env = [ 'CARGO_HOME=' + meson.project_build_root() / 'cargo-home' ]
+application_id = 'com.axos-project.Axuralis@0@'.format(profile)
 
-cargo_release = custom_target(
-  'cargo-build',
-  build_by_default: true,
-  build_always_stale: true,
-  output: meson.project_name(),
-  console: true,
-  install: true,
-  install_dir: get_option('bindir'),
-  command: [
-    'env',
-    cargo_env,
-    cargo, 'build',
-    cargo_options,
-    '&&',
-    'cp', 'src' / rust_target / meson.project_name(), '@OUTPUT@',
-  ],
+subdir('data')
+subdir('src')
+subdir('po')
+
+reuse = find_program('reuse', required: false)
+if reuse.found()
+  test('license',
+    reuse,
+    args:['lint'],
+    workdir: meson.project_source_root(),
+    suite: ['lint'],
+  )
+endif
+
+test('lint',
+  find_program('build-aux/checks.sh'),
+  args: ['--tap'],
+  protocol: 'tap',
+  workdir: meson.project_source_root(),
+  suite: ['lint'],
+)
+
+meson.add_dist_script(
+  'build-aux/dist-vendor.sh',
+  meson.project_source_root(),
+  meson.project_build_root() / 'meson-dist' / '@0@-@1@'.format(meson.project_name(), meson.project_version()),
+)
+
+gnome.post_install(
+  glib_compile_schemas: true,
+  gtk_update_icon_cache: true,
+  update_desktop_database: true,
+)
+
+summary({
+    'prefix': get_option('prefix'),
+    'libdir': get_option('libdir'),
+    'datadir': get_option('datadir'),
+    'bindir': get_option('bindir'),
+  },
+  section: 'Directories',
+)
+
+summary({
+    'Profile': get_option('profile'),
+  },
+  section: 'Build options',
 )
