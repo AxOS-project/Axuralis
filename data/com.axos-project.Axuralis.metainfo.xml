@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>@APPLICATION_ID@</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
+  <name>Axuralis</name>
+  <summary>AxOS music player</summary>
+  <description>
+    <p>
+      Axuralis is the AxOS music player. It plays music, and nothing else.
+    </p>
+  </description>
+  <branding>
+    <color type="primary" scheme_preference="light">#b890ff</color>
+    <color type="primary" scheme_preference="dark">#360081</color>
+  </branding>
+  <launchable type="desktop-id">@APPLICATION_ID@.desktop</launchable>
+  <url type="homepage">https://github.com/axos-project/Axuralis</url>
+  <url type="bugtracker">https://github.com/axos-project/Axuralis/issues</url>
+  <url type="donation">https://github.com/sponsors/AxOS-project</url>
+  <developer_name>Ardox</developer_name>
+  <developer id="com.axos-project">
+    <name>Ardox</name>
+  </developer>
+  <translation type="gettext">axuralis</translation>
+  <custom>
+    <value key="Purism::form_factor">mobile</value>
+  </custom>
+  <requires>
+    <display_length compare="ge">360</display_length>
+  </requires>
+  <recommends>
+    <control>keyboard</control>
+    <control>pointing</control>
+    <control>touch</control>
+  </recommends>
+  <kudos>
+    <kudo>ModernToolkit</kudo>
+    <kudo>Notifications</kudo>
+  </kudos>
+  <content_rating type="oars-1.1"/>
+  <provides>@APPLICATION_ID@.desktop</provides>
+</component>

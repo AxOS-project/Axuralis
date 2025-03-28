@@ -1,0 +1,14 @@
+data/com.axos-project.Axuralis.desktop.in.in
+data/com.axos-project.Axuralis.gschema.xml
+data/com.axos-project.Axuralis.metainfo.xml.in.in
+src/audio/inhibit_controller.rs
+src/audio/song.rs
+src/gtk/help-overlay.ui
+src/gtk/playback-control.ui
+src/gtk/playlist-view.ui
+src/gtk/queue-row.ui
+src/gtk/window.ui
+src/application.rs
+src/cover_picture.rs
+src/playback_control.rs
+src/window.rs
