@@ -1,22 +1,169 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg height="128px" viewBox="0 0 128 128" width="128px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <linearGradient id="a" gradientTransform="matrix(1.008894 0 0 1.00892 -0.568699 -2.626877)" gradientUnits="userSpaceOnUse" x1="8" x2="120" y1="236" y2="236">
-        <stop offset="0" stop-color="#498fe5"/>
-        <stop offset="0.186734" stop-color="#1a5fb4" stop-opacity="0.984314"/>
-        <stop offset="0.392857" stop-color="#2579e0" stop-opacity="0.968627"/>
-        <stop offset="0.617036" stop-color="#5596e6" stop-opacity="0.956863"/>
-        <stop offset="0.855136" stop-color="#134583"/>
-        <stop offset="1" stop-color="#2677df"/>
-    </linearGradient>
-    <linearGradient id="b" gradientTransform="matrix(0.659952 0.659952 -0.659952 0.659952 176.852005 -137.325138)" gradientUnits="userSpaceOnUse" x1="139.477295" x2="25.039328" y1="259.588104" y2="189.370285">
-        <stop offset="0" stop-color="#59cde7"/>
-        <stop offset="1" stop-color="#1c71d8"/>
-    </linearGradient>
-    <path d="m 64 4 c 30.929688 0 56 25.070312 56 56 v 8 c 0 30.929688 -25.070312 56 -56 56 s -56 -25.070312 -56 -56 v -8 c 0 -30.929688 25.070312 -56 56 -56 z m 0 0" fill="url(#a)"/>
-    <path d="m 103.59375 99.59375 c -21.867188 21.875 -57.320312 21.875 -79.191406 0 c -21.871094 -21.867188 -21.871094 -57.320312 0 -79.191406 s 57.324218 -21.871094 79.191406 0 c 21.875 21.871094 21.875 57.324218 0 79.191406 z m 0 0" fill="url(#b)"/>
-    <path d="m 64 21.742188 c -10.238281 0 -20.476562 3.90625 -28.285156 11.714843 c -15.621094 15.621094 -15.621094 40.953125 0 56.574219 c 15.621094 15.617188 40.949218 15.617188 56.570312 0 c 15.621094 -15.621094 15.621094 -40.953125 0 -56.574219 c -7.808594 -7.808593 -18.046875 -11.714843 -28.285156 -11.714843 z m -10.152344 20.25 c 1.027344 -0.027344 2.085938 0.214843 3.085938 0.773437 l 25 14 c 4.085937 2.292969 4.085937 8.175781 0 10.46875 l -25 14 c -4 2.238281 -8.933594 -0.652344 -8.933594 -5.234375 v -28 c 0 -3.4375 2.777344 -5.921875 5.847656 -6.007812 z m 0 0" fill="#1a5fb4"/>
-    <g fill="#ffffff">
-        <path d="m 64 19.742188 c -10.238281 0 -20.476562 3.90625 -28.285156 11.714843 c -15.621094 15.621094 -15.621094 40.953125 0 56.574219 c 15.621094 15.617188 40.949218 15.617188 56.570312 0 c 15.621094 -15.621094 15.621094 -40.953125 0 -56.574219 c -7.808594 -7.808593 -18.046875 -11.714843 -28.285156 -11.714843 z m -10.152344 20.25 c 1.027344 -0.027344 2.085938 0.214843 3.085938 0.773437 l 25 14 c 4.085937 2.292969 4.085937 8.175781 0 10.46875 l -25 14 c -4 2.238281 -8.933594 -0.652344 -8.933594 -5.234375 v -28 c 0 -3.4375 2.777344 -5.921875 5.847656 -6.007812 z m 0 0"/>
-        <path d="m 8.023438 58.742188 c -0.261719 14.664062 5.191406 29.40625 16.378906 40.59375 c 21.871094 21.875 57.324218 21.875 79.191406 0 c 11.191406 -11.1875 16.644531 -25.929688 16.382812 -40.59375 c -0.25 13.996093 -5.699218 27.914062 -16.382812 38.59375 c -21.867188 21.875 -57.320312 21.875 -79.191406 0 c -10.679688 -10.679688 -16.128906 -24.597657 -16.378906 -38.59375 z m 0 0" fill-opacity="0.2"/>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="119.89742mm"
+   height="91.897926mm"
+   viewBox="0 0 119.89742 91.897926"
+   version="1.1"
+   id="svg1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <g
+     id="layer1"
+     transform="translate(-37.551221,-60.051004)">
+    <rect
+       style="fill:#2f2f2f;stroke-width:0.307715"
+       id="rect1"
+       width="41.876354"
+       height="41.876354"
+       x="-13.963558"
+       y="-165.56541"
+       transform="rotate(134.91086)"
+       ry="5"
+       rx="5" />
+    <rect
+       style="fill:#7800d5;fill-opacity:1;stroke-width:0.216797"
+       id="rect1-5"
+       width="29.503481"
+       height="29.503481"
+       x="-7.8434787"
+       y="-159.32741"
+       transform="rotate(134.91086)" />
+    <g
+       id="g2">
+      <g
+         id="g7-3"
+         transform="translate(4.4259722,-0.22600173)"
+         style="fill:#7800d5;fill-opacity:1">
+        <rect
+           style="fill:#7800d5;fill-opacity:1;stroke-width:0.253113"
+           id="rect5-2"
+           width="64.84063"
+           height="8.797471"
+           x="-14.689629"
+           y="-109.25517"
+           transform="rotate(135)"
+           rx="5"
+           ry="5" />
+        <rect
+           style="fill:#7800d5;fill-opacity:1;stroke-width:0.253139"
+           id="rect5-4-0"
+           width="64.846855"
+           height="8.798315"
+           x="-164.91515"
+           y="-49.753967"
+           transform="rotate(-135)"
+           rx="5"
+           ry="5" />
+        <rect
+           style="fill:#7800d5;fill-opacity:1;stroke-width:0.264583"
+           id="rect6-61"
+           width="0.015052374"
+           height="0.10536662"
+           x="88.681061"
+           y="60.277225" />
+      </g>
+      <g
+         id="g7"
+         transform="translate(0,-0.22600173)">
+        <rect
+           style="fill:#2f2f2f;fill-opacity:1;stroke-width:0.264583"
+           id="rect5"
+           width="67.778999"
+           height="9.1961002"
+           x="-17.819063"
+           y="-109.4624"
+           transform="rotate(135)"
+           rx="5"
+           ry="5" />
+        <rect
+           style="fill:#2f2f2f;fill-opacity:1;stroke-width:0.264583"
+           id="rect5-4"
+           width="67.778671"
+           height="9.1961002"
+           x="-168.04587"
+           y="-49.952866"
+           transform="rotate(-135)"
+           rx="5"
+           ry="5" />
+        <rect
+           style="fill:#ff0000;fill-opacity:1;stroke-width:0.264583"
+           id="rect6"
+           width="0.015052374"
+           height="0.10536662"
+           x="88.681061"
+           y="60.277225" />
+      </g>
     </g>
+    <g
+       id="g7-5"
+       transform="matrix(-1,0,0,1,194.99986,-0.22020788)">
+      <g
+         id="g1">
+        <g
+           id="g7-3-7"
+           transform="matrix(0.99696151,0,0,0.99696151,4.5851802,0.17713413)"
+           style="fill:#7800d5;fill-opacity:1">
+          <rect
+             style="fill:#7800d5;fill-opacity:1;stroke-width:0.255326"
+             id="rect5-2-6"
+             width="65.406715"
+             height="8.87428"
+             x="-14.748383"
+             y="-109.30153"
+             transform="rotate(135)"
+             ry="5.0152388"
+             rx="5.0152388" />
+          <rect
+             style="fill:#7800d5;fill-opacity:1;stroke-width:0.254197"
+             id="rect5-4-0-5"
+             width="65.31646"
+             height="8.8351297"
+             x="-165.18105"
+             y="-49.796238"
+             transform="rotate(-135)"
+             rx="5.0152388"
+             ry="5.0152388" />
+          <rect
+             style="fill:#7800d5;fill-opacity:1;stroke-width:0.264583"
+             id="rect6-61-6"
+             width="0.015052374"
+             height="0.10536662"
+             x="88.681061"
+             y="60.277225" />
+        </g>
+        <path
+           style="fill:#2f2f2f;fill-opacity:1;stroke-width:0.264583"
+           id="rect5-0"
+           width="67.778999"
+           height="9.1961002"
+           x="-17.819063"
+           y="-109.4624"
+           transform="rotate(135)"
+           d="m -12.819063,-109.4624 h 57.778999 c 2.77,0 5,2.05073 5,4.59805 0,2.54732 -2.23,4.59805 -5,4.59805 h -57.778999 c -2.77,0 -5,-2.05073 -5,-4.59805 0,-2.54732 2.23,-4.59805 5,-4.59805 z"
+           rx="5"
+           ry="5" />
+        <rect
+           style="fill:#2f2f2f;fill-opacity:1;stroke-width:0.264583"
+           id="rect5-4-3"
+           width="67.778671"
+           height="9.1961002"
+           x="-168.04587"
+           y="-49.952866"
+           transform="rotate(-135)"
+           rx="5"
+           ry="5" />
+        <rect
+           style="fill:#ff0000;fill-opacity:1;stroke-width:0.264583"
+           id="rect6-6"
+           width="0.015052374"
+           height="0.10536662"
+           x="88.681061"
+           y="60.277225" />
+      </g>
+    </g>
+  </g>
 </svg>

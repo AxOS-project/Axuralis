@@ -4,7 +4,7 @@
 [package]
 name = "axuralis"
 authors = ["Ardox <ardox@axos-project.com>"]
-version = "1.0.0"
+version = "1.1.0"
 edition = "2018"
 
 [dependencies]
