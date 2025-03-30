@@ -8,3 +8,7 @@ This app is based on Amberol.
 
 https://github.com/user-attachments/assets/0b7abe03-71cf-4db6-b4bc-a322d5211cbe
 
+## Todo
+
+- [ ] add discord RPC
+- [ ] Make a tray for background playing
