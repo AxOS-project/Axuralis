@@ -82,12 +82,6 @@ mod imp {
     }
 
     impl ApplicationImpl for Application {
-        fn startup(&self) {
-            self.parent_startup();
-
-            gtk::Window::set_default_icon_name(APPLICATION_ID);
-        }
-
         fn activate(&self) {
             debug!("Application::activate");
 
@@ -102,6 +96,12 @@ mod imp {
             if let Some(window) = application.active_window() {
                 window.downcast_ref::<Window>().unwrap().open_files(files);
             }
+        }
+
+        fn startup(&self) {
+            self.parent_startup();
+
+            gtk::Window::set_default_icon_name(APPLICATION_ID);
         }
     }
 

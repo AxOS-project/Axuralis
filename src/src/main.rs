@@ -19,6 +19,7 @@ mod utils;
 mod volume_control;
 mod waveform_view;
 mod window;
+mod discord_rpc;
 
 use std::env;
 
@@ -26,6 +27,8 @@ use config::{APPLICATION_ID, GETTEXT_PACKAGE, LOCALEDIR, PKGDATADIR, PROFILE};
 use gettextrs::{bind_textdomain_codeset, bindtextdomain, setlocale, textdomain, LocaleCategory};
 use gtk::{gio, glib, prelude::*};
 use log::{debug, error, LevelFilter};
+
+use discord_rpc::DiscordRPC;
 
 use self::application::Application;
 
@@ -81,6 +84,10 @@ fn main() -> glib::ExitCode {
 
     let ctx = glib::MainContext::default();
     let _guard = ctx.acquire().unwrap();
+
+    //let discord_rpc = DiscordRPC::new("1355915802166956182");
+
+    //discord_rpc.run();
 
     Application::new().run()
 }
