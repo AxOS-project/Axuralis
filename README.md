@@ -10,5 +10,7 @@ https://github.com/user-attachments/assets/0b7abe03-71cf-4db6-b4bc-a322d5211cbe
 
 ## Todo
 
-- [ ] add discord RPC
+- [x] add discord RPC
 - [ ] Make a tray for background playing
+- [ ] RPC: make subscriptions instead of periodic calls
+- [ ] RPC: clear the activity when stopped

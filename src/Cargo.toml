@@ -4,7 +4,7 @@
 [package]
 name = "axuralis"
 authors = ["Ardox <ardox@axos-project.com>"]
-version = "1.1.0"
+version = "1.2.0"
 edition = "2018"
 
 [dependencies]
@@ -25,6 +25,9 @@ fuzzy-matcher = "0.3.7"
 async-channel = "2.2.0"
 futures = "0.3"
 discord-rich-presence = "0.2.5"
+mpris = "2.0.1"
+reqwest = { version = "0.12", features = ["blocking", "json"] }
+pickledb = "0.5.1"
 
 [target.'cfg(any(target_os = "linux", target_os = "freebsd"))'.dependencies]
 ashpd = {version = "0.9.1", features = ["gtk4"]}

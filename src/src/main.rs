@@ -85,9 +85,8 @@ fn main() -> glib::ExitCode {
     let ctx = glib::MainContext::default();
     let _guard = ctx.acquire().unwrap();
 
-    //let discord_rpc = DiscordRPC::new("1355915802166956182");
-
-    //discord_rpc.run();
+    let discord_rpc = DiscordRPC::new("1355915802166956182");
+    discord_rpc.run();
 
     Application::new().run()
 }

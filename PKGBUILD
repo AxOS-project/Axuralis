@@ -1,10 +1,10 @@
 pkgname=axuralis
-pkgver=1.1.0
+pkgver=1.2.0
 pkgrel=1
 pkgdesc="Music player for AxOS"
 arch=('x86_64')
 depends=('gtk4' 'libadwaita')
-makedepends=('meson' 'ninja' 'rust' 'cargo')
+makedepends=('meson' 'rust' 'cargo')
 
 build() {
     cd $srcdir
