@@ -93,7 +93,16 @@ fn main() -> glib::ExitCode {
 
         for process in system.processes().values() {
             let name = process.name().to_string_lossy().to_lowercase();
-            if name.contains("discord") {
+            let discord_clients = [
+                "discord",
+                "discordcanary",
+                "discordptb",
+                "discorddevelopment",
+                "discorddevelopmentcanary",
+                "vencord",
+                "vesktop",
+            ];
+            if discord_clients.iter().any(|client| name.contains(client)) {
                 return true;
             }
         }

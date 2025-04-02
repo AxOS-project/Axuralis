@@ -7,7 +7,7 @@ use std::convert::TryInto;
 use discord_rich_presence::{activity::{Activity, Assets, ActivityType}, DiscordIpc, DiscordIpcClient};
 use std::time::{Duration, SystemTime};
 use discord_rich_presence::activity::Timestamps;
-use mpris::{PlayerFinder};
+use mpris::PlayerFinder;
 use pickledb::{PickleDb, PickleDbDumpPolicy, SerializationMethod};
 
 pub struct DiscordRPC {
