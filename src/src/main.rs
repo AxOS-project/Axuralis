@@ -30,6 +30,8 @@ use log::{debug, error, LevelFilter};
 
 use discord_rpc::DiscordRPC;
 
+use sysinfo::{ProcessesToUpdate, System};
+
 use self::application::Application;
 
 fn main() -> glib::ExitCode {
@@ -85,8 +87,25 @@ fn main() -> glib::ExitCode {
     let ctx = glib::MainContext::default();
     let _guard = ctx.acquire().unwrap();
 
-    let discord_rpc = DiscordRPC::new("1355915802166956182");
-    discord_rpc.run();
+    fn is_discord_running() -> bool {
+        let mut system = System::new_all();
+        system.refresh_processes(ProcessesToUpdate::All, false);
+
+        for process in system.processes().values() {
+            let name = process.name().to_string_lossy().to_lowercase();
+            if name.contains("discord") {
+                return true;
+            }
+        }
+        false
+    }
+
+    if is_discord_running() {
+        let client = DiscordRPC::new("1355915802166956182");
+        client.run();
+    } else {
+        println!("Discord RPC not available")
+    }
 
     Application::new().run()
 }
