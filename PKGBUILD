@@ -1,5 +1,5 @@
 pkgname=axuralis
-pkgver=1.2.1
+pkgver=1.2.2
 pkgrel=1
 pkgdesc="Music player for AxOS"
 arch=('x86_64')

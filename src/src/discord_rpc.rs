@@ -45,9 +45,7 @@ impl DiscordRPC {
         }
 
         let get_mbid = || -> String {
-            let url = "https://musicbrainz.org/ws/2/release/?query=artist={}%20AND%20title={}&fmt=json"
-                .replace("{}", artist)
-                .replace("{}", title);
+            let url = format!("https://musicbrainz.org/ws/2/release/?query=artist={}%20AND%20title={}&fmt=json", artist, title);
             let headers = {
                 let mut headers = reqwest::header::HeaderMap::new();
                 headers.insert(
@@ -63,13 +61,14 @@ impl DiscordRPC {
             let response = client.get(&url).send();
             if let Ok(response) = response {
                 if let Ok(json) = response.json::<serde_json::Value>() {
-                    return json["releases"][0]["id"].as_str().unwrap_or("").to_string();
+                    return json["releases"][0]["id"].as_str().unwrap().to_string();
                 };
             };
             "".to_string()
         };
 
         let mbid = get_mbid();
+        println!("MBID: {}", mbid);
         if mbid.is_empty() {
             return "".to_string();
         }
@@ -78,6 +77,7 @@ impl DiscordRPC {
             mbid
         ));
         if cover_url.is_ok() {
+            println!("Cover Archive URL: {:?}", cover_url);
             println!("Doing a request to coverartarchive");
             let url = cover_url.unwrap().url().to_string();
 
