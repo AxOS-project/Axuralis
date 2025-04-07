@@ -20,6 +20,7 @@ mod volume_control;
 mod waveform_view;
 mod window;
 mod discord_rpc;
+mod systray;
 
 use std::env;
 
@@ -29,6 +30,7 @@ use gtk::{gio, glib, prelude::*};
 use log::{debug, error, LevelFilter};
 
 use discord_rpc::DiscordRPC;
+use systray::SystemTray;
 
 use sysinfo::{ProcessesToUpdate, System};
 
@@ -115,6 +117,9 @@ fn main() -> glib::ExitCode {
     } else {
         println!("Discord RPC not available")
     }
+
+    let systray = SystemTray::new();
+    systray.run();
 
     Application::new().run()
 }

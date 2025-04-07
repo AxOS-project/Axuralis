@@ -68,7 +68,6 @@ impl DiscordRPC {
         };
 
         let mbid = get_mbid();
-        println!("MBID: {}", mbid);
         if mbid.is_empty() {
             return "".to_string();
         }
@@ -77,8 +76,6 @@ impl DiscordRPC {
             mbid
         ));
         if cover_url.is_ok() {
-            println!("Cover Archive URL: {:?}", cover_url);
-            println!("Doing a request to coverartarchive");
             let url = cover_url.unwrap().url().to_string();
 
             // Cache the result if we have a valid URL and database
