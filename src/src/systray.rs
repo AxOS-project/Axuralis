@@ -5,9 +5,10 @@ use tray_item::TrayItem;
 use mpris::PlayerFinder;
 
 enum Message {
-    Quit,
     Play,
     Pause,
+    Next,
+    Previous,
 }
 
 pub struct SystemTray {
@@ -30,13 +31,15 @@ impl SystemTray {
 
         let (tx, rx) = mpsc::sync_channel::<Message>(2);
 
-        let quit_tx = tx.clone();
         let play_tx = tx.clone();
         let pause_tx = tx.clone();
-        tray.add_menu_item("Quit", move || { quit_tx.send(Message::Quit).unwrap(); }).unwrap();
+        let next_tx = tx.clone();
+        let prev_tx = tx.clone();
 
         tray.add_menu_item("Play", move || { play_tx.send(Message::Play).unwrap(); }).unwrap();
         tray.add_menu_item("Pause", move || { pause_tx.send(Message::Pause).unwrap(); }).unwrap();
+        tray.add_menu_item("Next", move || { next_tx.send(Message::Next).unwrap(); }).unwrap();
+        tray.add_menu_item("Previous", move || { prev_tx.send(Message::Previous).unwrap(); }).unwrap();
 
 
         loop {
@@ -48,16 +51,20 @@ impl SystemTray {
                 Ok(player) => {
                     if player.is_running() {
                         match rx.recv_timeout(std::time::Duration::from_millis(100)) {
-                            Ok(Message::Quit) => {
-                                println!("Quit");
-                            }
                             Ok(Message::Pause) => {
                                 player.pause().unwrap_or_else(|e| println!("Could not pause player: {}", e));
                             }
                             Ok(Message::Play) => {
                                 player.play().unwrap_or_else(|e| println!("Could not play player: {}", e));
                             }
+                            Ok(Message::Next) => {
+                                player.next().unwrap_or_else(|e| println!("Could not play player: {}", e));
+                            }
+                            Ok(Message::Previous) => {
+                                player.previous().unwrap_or_else(|e| println!("Could not play player: {}", e));
+                            }
                             Err(mpsc::RecvTimeoutError::Timeout) => {
+                                // No message received, continue
                             }
                             Err(e) => {
                                 println!("Error receiving message: {:?}", e);
@@ -72,10 +79,6 @@ impl SystemTray {
                     std::thread::sleep(std::time::Duration::from_secs(1));
 
                     match rx.try_recv() {
-                        Ok(Message::Quit) => {
-                            println!("Quit");
-                            break;
-                        }
                         _ => {}
                     }
                 }
